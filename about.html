@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Wete's Riverside Farmstay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #4a6741;
+    --secondary-color: #f0e6d2;
+    --accent-color: #e9b44c;
+    --text-color: #333;
+    --background-color: #fff;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo img {
+    height: 70px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color var(--transition-speed) ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all var(--transition-speed) ease;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('https://images.pexels.com/photos/2893177/pexels-photo-2893177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Animated text */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section styles */
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.section-title.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Location Info Section */
+.location-info {
+    background-color: var(--secondary-color);
+}
+
+.location-info p {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.location-info p.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Owner Info Section */
+.owner-info {
+    background-color: var(--background-color);
+}
+
+.owner-content {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.owner-image {
+    flex: 1;
+    opacity: 0;
+    height: 500px;
+    transform: translateX(-20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.owner-image.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.owner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.owner-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.owner-text h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.owner-text p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.owner-text h3.fade-in,
+.owner-text p.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Our Aim Section */
+.our-aim {
+    background-color: var(--secondary-color);
+}
+
+.aim-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.aim-item {
+    flex: 1;
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease, opacity 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.aim-item.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aim-item:hover {
+    transform: translateY(-10px);
+}
+
+.aim-item i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.aim-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 3rem 10% 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+    margin-bottom: 1rem;
+}
+
+.footer-links h4,
+.footer-social h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .owner-content {
+        flex-direction: column;
+    }
+
+    .aim-content {
+        flex-direction: column;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="constants/Logo.png" alt="Riverside Farmstay Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="animate-text">About Wete's Riverside Farmstay</h1>
+                <p class="animate-text">Experience the charm of rural life by the river</p>
+            </div>
+        </section>
+
+        <section class="location-info">
+            <div class="container">
+                <h2 class="section-title">Our Location</h2>
+                <p class="fade-in">Nestled along the picturesque banks of the [River Name], Wete's Riverside Farmstay offers a perfect blend of natural beauty and rural charm. Our farm is located just [X] kilometers from [Nearest Town/City], providing easy access while maintaining a serene countryside atmosphere.</p>
+                <p class="fade-in">Surrounded by lush farmlands and with the soothing sounds of the river nearby, our location offers the ideal setting for a peaceful getaway or an adventure-filled rural experience.</p>
+            </div>
+        </section>
+
+        <section class="owner-info">
+            <div class="container">
+                <div class="owner-content">
+                    <div class="owner-image fade-in">
+                        <img src="https://cdn.pixabay.com/photo/2022/01/19/14/50/portrait-6950046_960_720.jpg" alt="John Wete">
+                    </div>
+                    <div class="owner-text">
+                        <h2 class="section-title">Meet the Owner</h2>
+                        <h3 class="fade-in">John Wete</h3>
+                        <p class="fade-in">John Wete, a third-generation farmer, founded Wete's Riverside Farmstay in 2010. With a passion for sustainable agriculture and a desire to share the beauty of rural life, John transformed his family farm into a welcoming retreat for visitors from all walks of life.</p>
+                        <p class="fade-in">John's extensive knowledge of local flora, fauna, and farming practices ensures that guests not only enjoy a comfortable stay but also gain insights into the rich agricultural heritage of the region.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-aim">
+            <div class="container">
+                <h2 class="section-title">Our Aim</h2>
+                <div class="aim-content">
+                    <div class="aim-item fade-in">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Promote Sustainable Living</h3>
+                        <p>We aim to showcase and promote sustainable farming practices, encouraging our guests to embrace eco-friendly lifestyles.</p>
+                    </div>
+                    <div class="aim-item fade-in">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Foster Connection</h3>
+                        <p>Our goal is to create meaningful connections between urban dwellers and rural life, bridging the gap between farm and table.</p>
+                    </div>
+                    <div class="aim-item fade-in">
+                        <i class="fas fa-heart"></i>
+                        <h3>Provide Unforgettable Experiences</h3>
+                        <p>We strive to offer unique, immersive experiences that allow our guests to create lasting memories in nature's lap.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Wete's Riverside Farmstay</h3>
+                <p>Your perfect getaway in nature's lap</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Wete's Riverside Farmstay. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const navSlide = () => {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+
+        burger.addEventListener('click', () => {
+            // Toggle Nav
+            nav.classList.toggle('nav-active');
+
+            // Animate Links
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+
+            // Burger Animation
+            burger.classList.toggle('toggle');
+        });
+    }
+
+    navSlide();
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.fade-in, .section-title');
+
+    const revealOnScroll = () => {
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementTop < windowHeight - 150) {
+                element.classList.add('fade-in');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check on page load
+
+    // Parallax effect for hero section
+    const hero = document.querySelector('.hero');
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.pageYOffset;
+        hero.style.backgroundPositionY = `${scrollPosition * 0.7}px`;
+    });
+
+    // Animate aim items on hover
+    const aimItems = document.querySelectorAll('.aim-item');
+    aimItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateY(-10px)';
+        });
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateY(0)';
+        });
+    });
+});
+</script>
+</body>
+</html>
