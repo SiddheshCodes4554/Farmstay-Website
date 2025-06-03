@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img style="height: 100px;width: 100px;" src="constants/Logo.png" alt="Farmstay Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
             </ul>
@@ -215,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Riverside Farmstay. All rights reserved.</p>
+            <p>&copy; 2025 Riverside Farmstay. All rights reserved.</p>
         </div>
     </footer>
 
