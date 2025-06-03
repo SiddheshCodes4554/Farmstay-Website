@@ -9,7 +9,7 @@ include_once("admin/config.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Wete's Riverside Farmstay</title>
+    <title>Gallery - Riverside Farmstay</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <style>
@@ -450,7 +450,7 @@ footer {
         <section class="hero">
             <div class="hero-content">
                 <h1 class="animate-text">Our Gallery</h1>
-                <p class="animate-text">Explore the beauty of Wete's Riverside Farmstay</p>
+                <p class="animate-text">Explore the beauty of Snow's Riverside Farmstay</p>
             </div>
         </section>
 
@@ -477,13 +477,13 @@ foreach ($gallery_images as $image): ?>
     <footer>
         <div class="footer-content">
             <div class="footer-info">
-                <h3>Wete's Riverside Farmstay</h3>
+                <h3>Snow's Riverside Farmstay</h3>
                 <p>Your perfect getaway in nature's lap</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                 </ul>
@@ -498,7 +498,7 @@ foreach ($gallery_images as $image): ?>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Wete's Riverside Farmstay. All rights reserved.</p>
+            <p>&copy; 2025 Snow's Riverside Farmstay. All rights reserved.</p>
         </div>
     </footer>
 
